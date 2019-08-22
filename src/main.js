@@ -1,6 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+
 import App from './App'
 import router from './router'
 import store from './store'
@@ -15,9 +16,13 @@ import '@/assets/icons/iconfont.css'
 import TreeTable from 'tree-table-vue'
 import VOrgTree from 'v-org-tree'
 import 'v-org-tree/dist/v-org-tree.css'
+// 引入lodash
+import _ from 'lodash'
+Object.defineProperty(Vue.prototype, '_', { value: _ })
 // 实际打包时应该不引入mock
 /* eslint-disable */
-if (process.env.NODE_ENV !== 'production') require('@/mock')
+// if (process.env.NODE_ENV !== 'production') require('@/mock')
+require('@/mock')
 
 Vue.use(iView, {
   i18n: (key, value) => i18n.t(key, value)
